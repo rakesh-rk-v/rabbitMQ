@@ -1,0 +1,2 @@
+org\wso2\carbon\connector\DynamicConnector.class
+org\wso2\carbon\esb\connector\DynamicESB.class

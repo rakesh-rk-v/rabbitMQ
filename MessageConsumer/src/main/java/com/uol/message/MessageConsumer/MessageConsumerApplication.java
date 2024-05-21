@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.uol.message.MessageConsumer.consume.ConsumerMessage;
+import com.uol.message.MessageConsumer.consume.FixedRateConsumer;
 
 @SpringBootApplication
 public class MessageConsumerApplication implements CommandLineRunner {
@@ -16,9 +17,12 @@ public class MessageConsumerApplication implements CommandLineRunner {
 	@Autowired
 	ConsumerMessage consumerMessage;
 
+	@Autowired
+	FixedRateConsumer fixedRateConsumer;
 	@Override
 	public void run(String... args) throws Exception {
-		consumerMessage.consumeMessage("consumerMessage");
+		// consumerMessage.consumeMessage("consumerMessage");
+		fixedRateConsumer.fixedRateConsumers();
 		
 	}
 

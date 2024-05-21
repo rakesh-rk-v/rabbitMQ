@@ -4,10 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import com.uol.message.MessagePublisher.producer.FixedRateProducer;
 import com.uol.message.MessagePublisher.producer.HelloMessage;
-
+@EnableScheduling
 @SpringBootApplication
 public class MessagePublisherApplication  implements CommandLineRunner  {
 
@@ -23,10 +24,14 @@ public class MessagePublisherApplication  implements CommandLineRunner  {
 
 	@Override
 	public void run(String... args) throws Exception {
-		for(int i = 1;i<=10;i++)
-		fixedRateProducer.sendMessages("SalesOrderQueue", Thread.currentThread().toString()+i);
-		// helloMessage.sendMessage("Rakesh Kumar");
+		
+		fixedRateProducer.sendMessages();
+		for(int i =1;i<=200000;i++) {
+		 helloMessage.sendMessage("Rakesh Kumar");
+		}
 		
 	}
+	
+	
 
 }
