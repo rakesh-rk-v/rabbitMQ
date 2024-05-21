@@ -11,6 +11,6 @@ public class HelloMessage {
 	
 	// This MMethod is Declared to Know Send the Message
 	public void sendMessage(String name) {
-		rabbitTemplate.convertAndSend("Hello This Is My First Project imn Gradle My Name is  : "+ name);
+		rabbitTemplate.convertAndSend("SalesOrderQueue","Hello This Is My First Project imn Gradle My Name is  : "+ name);
 	}
 }
